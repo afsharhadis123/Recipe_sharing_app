@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Recipe Sharing App</h1>
+
+{% if current_user %}
+<h3>Welcome to Recipe Sharing App {{ current_user['first_name'] }}</h3>
+
+<section class="controls">
+  <form action="/sessions/delete" method="POST">
+    <button>Log out</button>
+  </form>
+
+  <a href="/recipes/new">Add your recipe </a>
+</section>
+
+<section class="recipes">
+  {% for recipe in recipes: %}
+  <section class="recipe">
+    <header>
+      <h2>{{ recipe['name'] }}</h2>
+
+      <section class="controls">
+        <a href="/recipes/{{ recipe['id'] }}/edit">Edit</a>
+
+        <form action="/recipes/{{ recipe['id'] }}/delete" method="POST">
+          <button>Delete</button>
+        </form>
+
+        <form action="/recipes/{{ recipe['id'] }}/likes" method="POST">
+          <button>Like</button>
+        </form>
+      </section>
+    </header>
+
+    <img src="{{ recipe['image_url'] }}" alt="">
+  </section>
+  {% endfor %}
+</section>
+{% else %}
+<a href="/users/new">Sign up</a>
+<a href="/sessions/new">Log in</a>
+{% endif %}
+
+{% endblock %}
