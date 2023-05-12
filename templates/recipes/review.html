@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>review recipe</h1>
+<form action="/recipes/{{ recipe['id'] }}" method="POST">
+
+  <label for="">user_name:</label>
+  <input type="text" name="user_name" value="{{ recipe['user_name'] }}">
+
+  <label for="">recipe_name:</label>
+  <input type="text" name="recipe_name" value="{{ recipe['recipe_name'] }}">
+
+  <label for="">review:</label>
+  <input type="text" name="review" value="{{ recipe['review'] }}">
+
+
+  <button class="review-button">Add review</button>
+  
+</form>
+
+{% endblock %} 

@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
-
+{% block head_specifics %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/index.css') }}">
+{% endblock %}
 {% block content %}
-<h1>Recipe Sharing App</h1>
+
+<h1>EasyPeasy & YUMMY</h1>
+
+<h2>Recipe Sharing App</h2>
 
 {% if current_user %}
-<h3>Welcome to Recipe Sharing App {{ current_user['first_name'] }}</h3>
+<h3>Welcome to Recipe Sharing App {{ current_user['user_name'] }}</h3>
 
 <section class="controls">
   <form action="/sessions/delete" method="POST">
@@ -19,16 +24,20 @@
   <section class="recipe">
     <header>
       <h2>{{ recipe['name'] }}</h2>
+      <p>{{ recipe['description'] }}</p> 
+      <p>Ingredients: {{ recipe['ingredients'] }}</p> 
+      <p>Instructions: {{ recipe['instructions'] }}</p> 
 
       <section class="controls">
         <a href="/recipes/{{ recipe['id'] }}/edit">Edit</a>
 
-        <form action="/recipes/{{ recipe['id'] }}/delete" method="POST">
-          <button>Delete</button>
-        </form>
+
+        <a href="/recipes/{{ recipe['id'] }}/review">Review</a>
+        
 
         <form action="/recipes/{{ recipe['id'] }}/likes" method="POST">
-          <button>Like</button>
+          
+          <button type="submit">Like</button>
         </form>
       </section>
     </header>
@@ -38,6 +47,11 @@
   {% endfor %}
 </section>
 {% else %}
+
+<!-- <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> -->
+
+<p>EasyPesy & YUMMY is a platform for discovering and sharing delicious recipes. Join our community to find inspiration for your next meal and share your own culinary creations!</p>
+
 <a href="/users/new">Sign up</a>
 <a href="/sessions/new">Log in</a>
 {% endif %}

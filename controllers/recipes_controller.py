@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, session
-from models.recipe import all_recipes, get_recipe, create_recipe, update_recipe, delete_recipe, like_recipe
+from models.recipe import all_recipes, get_recipe, create_recipe, update_recipe, add_review_recipe, like_recipe
 from services.session_info import current_user
 
 def index():
@@ -21,22 +21,31 @@ def create():
   return redirect('/')
 
 def update(id):
- 
-  name = request.form.get('name')
-  description = request.form.get('description')
-  ingredients = request.form.get('ingredients')
-  instructions = request.form.get('instructions')
-  image_url = request.form.get('image_url')
-  update_recipe(id, name, description, ingredients, instructions, image_url)
-  return redirect('/')
+    name = request.form.get('name')
+    description = request.form.get('description')
+    ingredients = request.form.get('ingredients')
+    instructions = request.form.get('instructions')
+    image_url = request.form.get('image_url')
+    update_recipe(id, name, description, ingredients, instructions, image_url)
+    return redirect('/')
 
 def edit(id):
   recipe = get_recipe(id)
   return render_template('recipes/edit.html', recipe=recipe)
 
-def delete(id):
-  delete_recipe(id)
-  return redirect('/')
+def review(id):
+    recipe = get_recipe(id)
+    return render_template('recipes/review.html', recipe=recipe)
+
+
+
+def add_review(id):
+    user_name = request.form.get('user_name')
+    recipe_name = request.form.get('recipe_name')
+    review = request.form.get('review')
+    add_review_recipe(id, user_name, recipe_name, review)
+    return redirect('/')
+      
 
 def like(id):
   like_recipe(id, session['user_id'])

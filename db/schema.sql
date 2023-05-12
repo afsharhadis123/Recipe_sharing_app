@@ -38,3 +38,14 @@ CREATE TABLE likes(
   user_id INTEGER,
   recipe_id INTEGER
 );
+
+
+ INSERT INTO reviews (user_id, recipe_id, review )
+ VALUES (1, 2, 3)
+
+CREATE TABLE reviews(
+  id SERIAL PRIMARY KEY,
+  user_name TEXT,
+  recipe_name TEXT,
+  review TEXT
+);

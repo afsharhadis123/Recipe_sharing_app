@@ -20,5 +20,5 @@ def create():
     return redirect('/sessions/new')
 
 def delete():
-  session.clear() # logs the user out
+  session.clear()
   return redirect('/')
