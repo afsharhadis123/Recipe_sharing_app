@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-
+{% block head_specifics %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/edit.css') }}">
+{% endblock %}
 {% block content %}
 
 <h1>Edit recipe</h1>
@@ -21,6 +23,8 @@
   <input type="text" name="image_url" value="{{ recipe['image_url'] }}">
 
   <button class="update-button">Update recipe</button>
+  
+
   
 </form>
 {% endblock %}

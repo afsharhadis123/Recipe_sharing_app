@@ -38,12 +38,11 @@ def review(id):
     return render_template('recipes/review.html', recipe=recipe)
 
 
-
 def add_review(id):
     user_name = request.form.get('user_name')
-    recipe_name = request.form.get('recipe_name')
-    review = request.form.get('review')
-    add_review_recipe(id, user_name, recipe_name, review)
+    comment = request.form.get('comment', '')
+    rating = request.form.get('rating', 1)
+    add_review_recipe(id, user_name, comment, rating)
     return redirect('/')
       
 

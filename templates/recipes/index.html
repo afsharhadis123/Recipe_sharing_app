@@ -20,40 +20,40 @@
 </section>
 
 <section class="recipes">
-  {% for recipe in recipes: %}
+  {% for recipe in recipes %}
   <section class="recipe">
     <header>
       <h2>{{ recipe['name'] }}</h2>
       <p>{{ recipe['description'] }}</p> 
       <p>Ingredients: {{ recipe['ingredients'] }}</p> 
-      <p>Instructions: {{ recipe['instructions'] }}</p> 
-
+      <p>Instructions: {{ recipe['instructions'] }}</p>
+    </header>
+    <form action="/recipes/{{ recipe['id'] }}/likes" method="POST">
+      <button type="submit" id="like-button-{{ recipe['id'] }}">Like</button>
+      <span class="like-count">{{ recipe['like_count'] }}</span>
+    </form>
+    {% if user == recipe['user_id'] %}
       <section class="controls">
         <a href="/recipes/{{ recipe['id'] }}/edit">Edit</a>
-
-
+      </section>
+     {% endif %}
+        <section class="controls">
         <a href="/recipes/{{ recipe['id'] }}/review">Review</a>
         
-
-        <form action="/recipes/{{ recipe['id'] }}/likes" method="POST">
-          
-          <button type="submit">Like</button>
-        </form>
       </section>
-    </header>
-
-    <img src="{{ recipe['image_url'] }}" alt="">
+      <img src="{{ recipe['image_url'] }}" alt=""> 
   </section>
   {% endfor %}
 </section>
 {% else %}
 
-<!-- <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> -->
 
-<p>EasyPesy & YUMMY is a platform for discovering and sharing delicious recipes. Join our community to find inspiration for your next meal and share your own culinary creations!</p>
+      <p>EasyPesy & YUMMY is a platform for discovering and sharing delicious recipes. Join our community to find inspiration for your next meal and share your own culinary creations!</p>
 
-<a href="/users/new">Sign up</a>
-<a href="/sessions/new">Log in</a>
-{% endif %}
+      <a href="/users/new">Sign up</a>
+      <a href="/sessions/new">Log in</a>
+
+
+  {% endif %}
 
 {% endblock %}

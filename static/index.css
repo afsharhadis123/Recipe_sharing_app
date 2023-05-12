@@ -1,45 +1,150 @@
 body {
-    background-image: url("https://as1.ftcdn.net/v2/jpg/02/36/84/34/1000_F_236843400_dROtNDEWB5VOBa9hpt8XJfKWF6CcTvdx.jpg");
+    background-image: url("https://img.freepik.com/free-photo/elevated-view-gnocchi-pasta-with-fork-near-cherry-tomato-basil-leaf_23-2147844171.jpg?w=2000");
     background-repeat: no-repeat;
     background-size: cover;
 }
-  .logo{
-    
-    display: flex;
-    justify-content: center;
-    top: 20px;
-    left: 20px;
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 1;
-    max-width: max-content;
-  }
+.recipe {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.recipe-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
 
-  .rating {
-    display: inline-block;
-    font-size: 0;
-    position: relative;
+.recipe-details {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.recipe-details h2 {
+  font-size: 28px;
+  margin-top: 0;
+}
+
+.recipe-image {
+  flex: 1;
+  padding: 20px;
+}
+
+.recipe-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.recipe-ingredients,
+.recipe-instructions {
+  margin: 20px 0;
+}
+
+.recipe-ingredients ul,
+.recipe-instructions ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recipe-ingredients li,
+.recipe-instructions li {
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .recipe-container {
+    flex-direction: column;
   }
   
-  .rating input[type="radio"] {
-    display: none;
+  .recipe-image {
+    padding: 0;
   }
-  
-  .rating label {
-    color: #ccc;
-    font-size: 24px;
-    margin-right: 5px;
-  }
-  
-  /* .rating label:before {
-    content: "★";
-    position: absolute;
-    left: 0;
-    color: #ffc107;
-  } */
-  
-  /* .rating input[type="radio"]:checked ~ label:before {
-    color: #f2b01e;
-  } */
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.recipe header {
+  margin-bottom: 10px;
+}
+
+.recipe h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.recipe p {
+  margin-bottom: 5px;
+}
+
+.recipe img {
+  width: 100%;
+  height: auto;
+}
+
+.like-btn {
+  background-color: rgb(172, 27, 27);
+  border: none;
+  color: black;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.like-count {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}

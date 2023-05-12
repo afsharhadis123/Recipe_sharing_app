@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
-
+{% block head_specifics %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/review.css') }}">
+{% endblock %}
 {% block content %}
+
 <h1>review recipe</h1>
-<form action="/recipes/{{ recipe['id'] }}" method="POST">
 
-  <label for="">user_name:</label>
-  <input type="text" name="user_name" value="{{ recipe['user_name'] }}">
-
-  <label for="">recipe_name:</label>
-  <input type="text" name="recipe_name" value="{{ recipe['recipe_name'] }}">
-
-  <label for="">review:</label>
-  <input type="text" name="review" value="{{ recipe['review'] }}">
-
-
-  <button class="review-button">Add review</button>
+<form method="POST">
+    <label for="user_name">Your Name:</label>
+    <input type="text" id="user_name" name="user_name" value="{{ request.form.get('user_name', '') }}">
+    
+    <label for="rating">Rating (out of 5):</label>
+    <input type="number" id="rating" name="rating" min="1" max="5" value="{{ request.form.get('rating', 1) }}">
   
-</form>
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment">{{ request.form.get('comment', '') }}</textarea>
+  
+    <button type="submit">Submit</button>
+  </form>
 
-{% endblock %} 
+{% endblock %}
