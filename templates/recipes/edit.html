@@ -18,13 +18,17 @@
   <label for="">Instructions:</label>
   <input type="text" name="instructions" value="{{ recipe['instructions'] }}">
 
-
   <label for="">Image URL:</label>
   <input type="text" name="image_url" value="{{ recipe['image_url'] }}">
 
-  <button class="update-button">Update recipe</button>
-  
+  <label for="">Category:</label>
+  <select name="category">
+    <option value="meals" {% if recipe['category'] == 'meals' %} selected {% endif %}>Meals</option>
+    <option value="drinks" {% if recipe['category'] == 'drinks' %} selected {% endif %}>Drinks</option>
+    <option value="desserts" {% if recipe['category'] == 'desserts' %} selected {% endif %}>Desserts</option>
+  </select>
 
-  
-</form>
+
+
+  <button class="update-button">Update recipe</button>
 {% endblock %}

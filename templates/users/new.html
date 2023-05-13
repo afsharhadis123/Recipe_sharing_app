@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
-
+{% block head_specifics %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/users.css') }}">
+{% endblock %}
 {% block content %}
 <h1>Create an Account</h1>
 <form action="/users" method="POST">
-  <label for="">First Name:</label>
+  <strong></strong><label for="">First Name:</label>
   <input type="text" name="first_name">
 
-  <label for="">Last Name:</label>
+  <strong></strong><label for="">Last Name:</label>
   <input type="text" name="last_name">
 
-  <label for="">Email:</label>
+  <strong></strong><label for="">Email:</label>
   <input type="text" name="email">
 
-  <label for="">Username:</label>
+  <strong></strong><label for="">Username:</label>
   <input type="text" name="user_name">
 
-  <label for="">Password:</label>
+  <strong></strong><label for="">Password:</label>
   <input type="password" name="password">
 
 

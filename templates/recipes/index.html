@@ -24,21 +24,24 @@
   <section class="recipe">
     <header>
       <h2>{{ recipe['name'] }}</h2>
-      <p>{{ recipe['description'] }}</p> 
+      <p>Description: {{ recipe['description'] }}</p> 
+      <p>Category: {{ recipe['category'] }}</p> 
+      <p>Description: {{ recipe['description'] }}</p> 
       <p>Ingredients: {{ recipe['ingredients'] }}</p> 
       <p>Instructions: {{ recipe['instructions'] }}</p>
     </header>
     <form action="/recipes/{{ recipe['id'] }}/likes" method="POST">
-      <button type="submit" id="like-button-{{ recipe['id'] }}">Like</button>
-      <span class="like-count">{{ recipe['like_count'] }}</span>
-    </form>
+      <input type="hidden" name="id" value="{{ recipe['id'] }}">
+      <button type="submit">Like</button>
+  </form>
     {% if user == recipe['user_id'] %}
       <section class="controls">
         <a href="/recipes/{{ recipe['id'] }}/edit">Edit</a>
       </section>
-     {% endif %}
+      {% endif %}
         <section class="controls">
         <a href="/recipes/{{ recipe['id'] }}/review">Review</a>
+        
         
       </section>
       <img src="{{ recipe['image_url'] }}" alt=""> 
@@ -47,13 +50,13 @@
 </section>
 {% else %}
 
-
+<section class="first">
       <p>EasyPesy & YUMMY is a platform for discovering and sharing delicious recipes. Join our community to find inspiration for your next meal and share your own culinary creations!</p>
 
       <a href="/users/new">Sign up</a>
       <a href="/sessions/new">Log in</a>
 
-
+ </section>
   {% endif %}
 
 {% endblock %}

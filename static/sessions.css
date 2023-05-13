@@ -1,5 +1,38 @@
 body {
-    background-image: url("https://static.vecteezy.com/system/resources/previews/003/823/542/original/spices-for-use-as-cooking-ingredients-on-a-wooden-background-with-fresh-vegetables-healthy-food-herbs-organic-vegetables-on-the-table-raw-materials-of-cooking-preparation-tom-yum-free-photo.jpg");
+    background-image: url("https://i.pinimg.com/originals/c1/14/c3/c114c345413eebe514d073473e96c756.jpg?w=2000");
     background-repeat: no-repeat;
     background-size: cover;
+    align-items: center;
+    color: rgb(157, 157, 138);
 }
+@keyframes slideIn {
+    0% {
+      transform: translateX(-200%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Apply animation to the login form */
+  form {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  /* Style the submit button */
+  button {
+    background-color: #c6c98c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Add hover effect to the submit button */
+  button:hover {
+    background-color: #3e8e41;
+  }

@@ -5,21 +5,29 @@
 {% block content %}
 <h1>Add Recipe</h1>
 <form action="/recipes" method="POST">
-  <label for="">Name:</label>
-  <input type="text" name="name">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name">
 
-  <label for="">Description:</label>
-  <input type="text" name="description">
+  <label for="description">Description:</label>
+  <input type="text" name="description" id="description">
 
-  <label for="">Ingredients:</label>
-  <input type="text" name="ingredients">
+  <label for="ingredients">Ingredients:</label>
+  <input type="text" name="ingredients" id="ingredients">
 
-  <label for="">Instructions:</label>
-  <input type="text" name="instructions">
+  <label for="instructions">Instructions:</label>
+  <input type="text" name="instructions" id="instructions">
 
-  <label for="">Image URL:</label>
-  <input type="text" name="image_url">
+  <label for="image_url">Image URL:</label>
+  <input type="text" name="image_url" id="image_url">
+
+  <label for="category">Category:</label>
+  <select name="category" id="category">
+    <option value="meals">Meals</option>
+    <option value="drinks">Drinks</option>
+    <option value="desserts">Desserts</option>
+  </select>
 
   <button>Add recipe</button>
+</form>
 </form>
 {% endblock %}

@@ -1,0 +1,29 @@
+form label {
+    display: block;
+    margin: 20px;
+    font-size: 20px;
+    color: #dfd9d9;
+    animation: labelFadeIn 2s ease;
+  }
+  
+  @keyframes labelFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+body {
+    background-color: #D2DBEF;
+    background-image: url( 'https://img.freepik.com/premium-photo/black-stone-food-background-vegetables-spices-black-old-table_187166-9025.jpg');
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    backdrop-filter: blur(1px);
+    color: #D2DBEF;
+  }
