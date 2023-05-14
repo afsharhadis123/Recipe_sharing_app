@@ -1,22 +1,21 @@
+/* apply some styles to the page */
 body {
   font-family: Arial, sans-serif;
-  font-size: 16px;
+  background-color: #f5f5f5;
+  background-image: url( 'https://t4.ftcdn.net/jpg/03/78/97/59/360_F_378975954_G39M4ptXAjxKy80gbBIEo0wqBkk89gBF.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(5px);
 }
 
-/* Add background color and center the text */
- h2, h3, p {
-  text-align: center;
-  font-family: 'Shadows Into Light', cursive;
-  color: #491744;
-}
-h1{
+h1 {
   font-family: 'Dancing Script', cursive;
+  color: #b83939;
+  font-size: 2.5rem;
   text-align: center;
-  color: rgb(128, 103, 152);
+  margin-top: 2rem;
   animation: fade-in 2s ease-in-out;
-  font-size: 42px;
 }
-
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -28,84 +27,164 @@ h1{
   }
 }
 
-body {
-  background-color: #D2DBEF;
-  background-image: url( 'https://t4.ftcdn.net/jpg/03/78/97/59/360_F_378975954_G39M4ptXAjxKy80gbBIEo0wqBkk89gBF.jpg');
-  
-  background-repeat: no-repeat;
-  background-size: cover;
- 
-  backdrop-filter: blur(5px);
+h2 {
+  color: #333;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: 'Shadows Into Light', cursive;
 }
 
-.recipes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 1.25rem;
-  margin-top: 1.5rem;
+p {
+  color: #666;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  font-family: 'Mogra', cursive;
 }
 
-/* Add some spacing between the elements */
-section {
-  margin: 20px 0;
-}
-
-/* Style the recipe cards */
-
-
-.recipe:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(-5px);
-}
-
-.recipe img {
-  width: 100%;
-  height: 300px;
-
-  object-fit: cover;
-}
-
-.recipe button {
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #5cb85c;
+/* apply some styles to the controls */
+.controls a {
   color: #fff;
+  background-color: #649eef;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px;
+  animation: slideIn 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
 
-.recipe button:hover {
-  background-color: #4cae4c;
+
+/* apply some styles to the recipes */
+.recipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.recipe {
+  width: 30%;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+.recipe:hover {
+  background-color: #f2f2f2;
+  transform: translateY(-10px);
+}
+
+.recipe header {
+  padding: 1rem;
+  background-color: #fff;
+  position: relative;
+}
+
+.recipe h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+
+
+.recipe img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateY(20px);
+  animation: slideIn 1s ease forwards;
+ 
+  /* crops the image - so it doesn't look stretched*/
+  object-fit: cover;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.recipe:hover img {
+  transform: scale(1.05);
 }
 
 .recipe .controls {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
+  background-color: rgba(255,255,255,0.8);
 }
 
-.recipe .controls a {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #428bca;
-  color: #fff;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
+
+
+/* apply some styles to the animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.recipe .controls a:hover {
-  background-color: #3071a9;
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-/* Add a fade-in animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* apply animations to the elements */
+.h2 {
+  animation: fadeIn 1s ease;
+}
 .fade-in {
   animation: fadeIn 0.5s ease-out;
 }
@@ -120,9 +199,5 @@ section {
     transform: translateY(0);
   }
 }
-.recipe .first p{
-  text-align: center;
-  font-family: 'Shadows Into Light', cursive;
-  color: #491744;
-  font-size: 60px;
-}
+
+

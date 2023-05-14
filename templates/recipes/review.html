@@ -6,17 +6,21 @@
 
 <h1>review recipe</h1>
 
-<form method="POST">
+<form action="/recipes/{{ recipe.id }}/reviews" method="POST">
     <label for="user_name">Your Name:</label>
-    <input type="text" id="user_name" name="user_name" value="{{ request.form.get('user_name', '') }}">
+    <input type="text" id="user_name"  name="user_name">
     
     <label for="rating">Rating (out of 5):</label>
-    <input type="number" id="rating" name="rating" min="1" max="5" value="{{ request.form.get('rating', 1) }}">
+    <input type="number" id="rating" name="rating">
   
     <label for="comment">Comment:</label>
-    <textarea id="comment" name="comment">{{ request.form.get('comment', '') }}</textarea>
+    <textarea id="comment" name="comment"></textarea>
+    </select>
+
   
     <button type="submit">Submit</button>
   </form>
 
-{% endblock %}
+
+
+  {% endblock %}

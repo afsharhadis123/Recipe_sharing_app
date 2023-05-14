@@ -10,23 +10,26 @@
   <input type="text" name="name" value="{{ recipe['name'] }}">
 
   <label for="">Description:</label>
-  <input type="text" name="description" value="{{ recipe['description'] }}">
+  <textarea id="description" name="description" value="{{ recipe['description'] }}"></textarea> 
 
   <label for="">Ingredients:</label>
-  <input type="text" name="ingredients" value="{{ recipe['ingredients'] }}">
+  <textarea id="ingredients" name="ingredients" value="{{ recipe['ingredients'] }}"></textarea> 
 
   <label for="">Instructions:</label>
-  <input type="text" name="instructions" value="{{ recipe['instructions'] }}">
+  <textarea id="instructions" name="instructions" value="{{ recipe['instructions'] }}"></textarea> 
 
   <label for="">Image URL:</label>
-  <input type="text" name="image_url" value="{{ recipe['image_url'] }}">
+  <textarea id="image_url" name="ingredients" value="{{ recipe['image_url'] }}"></textarea> 
 
-  <label for="">Category:</label>
-  <select name="category">
-    <option value="meals" {% if recipe['category'] == 'meals' %} selected {% endif %}>Meals</option>
-    <option value="drinks" {% if recipe['category'] == 'drinks' %} selected {% endif %}>Drinks</option>
-    <option value="desserts" {% if recipe['category'] == 'desserts' %} selected {% endif %}>Desserts</option>
-  </select>
+ 
+<label for="category">Category:</label>
+<select id="category" name="category">
+
+  <option value="meals">Meals</option>
+  <option value="drinks" >Drinks</option>
+  <option value="desserts" >Desserts</option>
+
+</select>
 
 
 
