@@ -1,6 +1,7 @@
 
-# import requests
-# requests.get(f"http://omdbapi.com?apikey={os.environ.get('OMDB_API_KEY')}&t=jaws").json()
+from dotenv import load_dotenv
+load_dotenv()  # take environment variables from .env.
+
 import os
 from flask import Flask, redirect
 
@@ -20,3 +21,5 @@ app.register_blueprint(sessions_routes, url_prefix='/sessions')
 @app.route('/')
 def index():
   return redirect('/recipes')
+
+

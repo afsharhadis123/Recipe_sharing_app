@@ -10,13 +10,12 @@
 
 {% if current_user %}
 <h3>Welcome to Recipe Sharing App {{ current_user['user_name'] }}</h3>
-<p>Here, you can discover new recipes, share your own favorites, and connect with other food lovers. Whether you're a seasoned chef or a novice cook, you'll find something to enjoy on our platform.
 
-  Browse our collection of recipes from around the world, including classic favorites and exciting new ideas. Try out different cuisines, experiment with new ingredients, and find inspiration for your next meal.
+<p>Here, you can discover new recipes, share your own favorites, and connect with other food lovers. 
+  Browse my collection of recipes, including classic favorites and exciting new ideas. Try out different cuisines, experiment with new ingredients, and find inspiration for your next meal.
   
-  And if you have a recipe of your own to share, we'd love to hear it! Add your own creations to our database and see them shared with the community.
-  
-  Join us in celebrating the joy of cooking and the power of food to bring people together. Happy cooking!</p>
+  And if you have a recipe of your own to share, I'd love to hear it! Add your own creations to my database and see them shared with others.
+  </p>
 </section>
 <section class="controls">
   <form action="/sessions/delete" method="POST">
@@ -32,8 +31,7 @@
     <header>
       <h2>{{ recipe['name'] }}</h2>
       <p>Description: {{ recipe['description'] }}</p> 
-      <p>Category: {{ recipe['category'] }}</p> 
-      <p>Description: {{ recipe['description'] }}</p> 
+      <p>Category: {{ recipe['category'] }}</p>  
       <p>Ingredients: {{ recipe['ingredients'] }}</p> 
       <p>Instructions: {{ recipe['instructions'] }}</p>
 
@@ -80,7 +78,7 @@
 
 <section class="first">
 
-  <img class="logo" src="{{ url_for('static', filename= 'images/logo1.png') }}" alt="logo">
+
 
       <p>EasyPesy & YUMMY is a platform for discovering and sharing delicious recipes. Join our community to find inspiration for your next meal and share your own culinary creations!</p>
 
