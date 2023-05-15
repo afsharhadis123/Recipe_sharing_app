@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, session
-from models.recipe import all_recipes, get_recipe, create_recipe, update_recipe, get_reviews, add_review_recipe, like_recipe
+from models.recipe import all_recipes, get_recipe, create_recipe, update_recipe, get_reviews, add_review_recipe, like_recipe, delete_recipe
 from services.session_info import current_user
 
 
@@ -42,8 +42,11 @@ def edit(id):
   return render_template('recipes/edit.html', recipe=recipe)
 
 def review(id):
+    print(id)
     recipe = get_recipe(id)
     reviews = get_reviews(id)
+    
+    print(reviews)
     return render_template('recipes/review.html', recipe=recipe, reviews=reviews)
 
 def add_review(id):
@@ -57,3 +60,7 @@ def like(id):
    
     like_recipe(id, session['user_id'])
     return redirect('/')
+
+def delete(id):
+  delete_recipe(id)
+  return redirect('/')

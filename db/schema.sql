@@ -56,4 +56,6 @@ CREATE TABLE reviews(
   user_name TEXT,
   comment TEXT,
   rating INTEGER
+  recipe_id INTEGER
 );
+

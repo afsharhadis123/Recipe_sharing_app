@@ -20,7 +20,14 @@
   
     <button type="submit">Submit</button>
   </form>
-
+  
+  {% for review in reviews %}
+  <div class="comment">
+    <h3>User: {{ review['user_name'] }}</h3>
+    <p>Comment: {{ review['comment'] }}</p>
+    <span>Rating: {{ review['rating'] }}/5</span>
+  </div>
+  {% endfor %}
 
 
   {% endblock %}

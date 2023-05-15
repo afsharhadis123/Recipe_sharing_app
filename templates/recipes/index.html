@@ -5,12 +5,19 @@
 {% block content %}
 
 <h1>EasyPeasy & YUMMY</h1>
-
+<section class="head">
 <h2>Recipe Sharing App</h2>
 
 {% if current_user %}
 <h3>Welcome to Recipe Sharing App {{ current_user['user_name'] }}</h3>
+<p>Here, you can discover new recipes, share your own favorites, and connect with other food lovers. Whether you're a seasoned chef or a novice cook, you'll find something to enjoy on our platform.
 
+  Browse our collection of recipes from around the world, including classic favorites and exciting new ideas. Try out different cuisines, experiment with new ingredients, and find inspiration for your next meal.
+  
+  And if you have a recipe of your own to share, we'd love to hear it! Add your own creations to our database and see them shared with the community.
+  
+  Join us in celebrating the joy of cooking and the power of food to bring people together. Happy cooking!</p>
+</section>
 <section class="controls">
   <form action="/sessions/delete" method="POST">
     <button>Log out</button>
@@ -29,11 +36,21 @@
       <p>Description: {{ recipe['description'] }}</p> 
       <p>Ingredients: {{ recipe['ingredients'] }}</p> 
       <p>Instructions: {{ recipe['instructions'] }}</p>
-   
+
+   <section class="">
+
       <form action="/recipes/{{ recipe['id'] }}/likes" method="POST">
         <input type="hidden" name="recipe_id" value="{{ recipe['id'] }}">
         <button type="submit">Like</button>
       </form>
+
+      <form action="/recipes/{{ recipe['id'] }}/delete" method="POST">
+        <button>Delete</button>
+      </form>
+      
+
+    
+   </section>
     
       <section class="controls">
         <a href="/recipes/{{ recipe['id'] }}/edit">Edit</a>
@@ -41,29 +58,30 @@
      
         
         <a href="/recipes/{{ recipe['id'] }}/review">Review</a>
+
+
+
+      
         
         
       </section>
     </header>
+    <div class="image-container">
       <img src="{{ recipe['image_url'] }}" alt=""> 
+
+    </div>
     </section>
    
-    <div class="comments">
-      {% for comment in add_review_recipe %}
-        <div class="comment">
-          <h3>{{ comment.user_name }}</h3>
-          <p>{{ comment.comment }}</p>
-          <span>Rating: {{ comment.rating }}/5</span>
-        </div>
-        {% endfor %}
-      
-    </div>
+  
   
   {% endfor %}
 </section>
 {% else %}
 
 <section class="first">
+
+  <img class="logo" src="{{ url_for('static', filename= 'images/logo1.png') }}" alt="logo">
+
       <p>EasyPesy & YUMMY is a platform for discovering and sharing delicious recipes. Join our community to find inspiration for your next meal and share your own culinary creations!</p>
 
       <a href="/users/new">Sign up</a>

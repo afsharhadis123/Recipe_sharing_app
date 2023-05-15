@@ -17,8 +17,11 @@ def add_review_recipe(id, user_name, comment, rating):
     sql('INSERT INTO reviews(recipe_id, user_name, comment, rating) VALUES (%s, %s, %s, %s) RETURNING *', [id, user_name, comment, rating])
     
 def get_reviews(recipe_id):
-    return sql("SELECT * FROM reviews WHERE recipe_id = %s", [recipe_id])
-   
+     comments = sql("SELECT * FROM reviews WHERE recipe_id = %s", [recipe_id])
+     return comments
 
 def like_recipe(user_id, recipe_id):
     sql("INSERT INTO likes(user_id, recipe_id) VALUES (%s, %s) RETURNING *", [user_id, recipe_id])
+
+def delete_recipe(id):
+    sql('DELETE FROM recipes WHERE id=%s RETURNING *', [id])
