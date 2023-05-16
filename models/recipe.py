@@ -1,7 +1,7 @@
 from db.db import sql
 
 def all_recipes():
-    return sql('SELECT * FROM recipes ORDER BY id')
+    return sql("SELECT * FROM recipes ORDER BY id")
 
 def get_recipe(id):
     recipes = sql("SELECT * FROM recipes WHERE id = %s", [id])

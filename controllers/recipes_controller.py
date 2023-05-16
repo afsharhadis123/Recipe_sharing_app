@@ -35,8 +35,6 @@ def update(id):
   return redirect('/')
 
 
-
-
 def edit(id):
   recipe = get_recipe(id)
   return render_template('recipes/edit.html', recipe=recipe)

@@ -67,10 +67,12 @@ Recipe sharing app: Create a platform where users can discover and share recipes
   
   <h3> 😱 Bugs to fix 💩 </h3>
   - Review function has complexity and I couldn't store comments in review page.
+  - CSS bugs: I have some problem in my indet.html for fit images in recipe container.
   
  
   <h3> 😭 Lessons learnt </h3> 
   <p> I learned to address each error step by step to run the page. Pay more attention to errors. </p>
+  <p> More focus on my CSS skills.</p>
   
   <h3> ✅  Future features </h3>
   

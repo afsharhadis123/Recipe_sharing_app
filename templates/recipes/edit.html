@@ -10,16 +10,16 @@
   <input type="text" name="name" value="{{ recipe['name'] }}">
 
   <label for="">Description:</label>
-  <textarea id="description" name="description" value="{{ recipe['description'] }}"></textarea> 
+  <input type="text" name="description" value="{{ recipe['description'] }}"></input> 
 
   <label for="">Ingredients:</label>
-  <textarea id="ingredients" name="ingredients" value="{{ recipe['ingredients'] }}"></textarea> 
+  <input type="text" name="ingredients" value="{{ recipe['ingredients'] }}"></input> 
 
   <label for="">Instructions:</label>
-  <textarea id="instructions" name="instructions" value="{{ recipe['instructions'] }}"></textarea> 
+  <input type="text" name="instructions" value="{{ recipe['instructions'] }}"></input> 
 
   <label for="">Image URL:</label>
-  <textarea id="image_url" name="ingredients" value="{{ recipe['image_url'] }}"></textarea> 
+  <input type="text" name="image_url" value="{{ recipe['image_url'] }}"></input> 
 
  
 <label for="category">Category:</label>
@@ -28,6 +28,7 @@
   <option value="meals">Meals</option>
   <option value="drinks" >Drinks</option>
   <option value="desserts" >Desserts</option>
+  <option value="home fast food">HomeFastFood</option>
 
 </select>
 
